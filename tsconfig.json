@@ -20,7 +20,7 @@
         ],
         "module": "esnext",
         "moduleResolution": "node",
-        "noImplicitAny": true,
+        "noImplicitAny": false,
         "outDir": "./dist/out-tsc",
         "paths": {
             "@app/*": [
@@ -38,11 +38,14 @@
         },
         "resolveJsonModule": true,
         "sourceMap": true,
-        "strict": true,
+        "strict": false,
         "target": "es2015",
         "typeRoots": [
             "node_modules/@types",
             "src/typings"
-        ]
+        ],
+        "strictPropertyInitialization": false,
+        // "noImplicitAny": false
+
     }
 }

@@ -11,13 +11,14 @@ import * as dashboardContainers from './containers';
 
 /* Guards */
 import * as dashboardGuards from './guards';
+import { AuthGuard } from '../auth/guards/auth.guard';
 
 /* Routes */
 export const ROUTES: Routes = [
     {
         path: '',
         data: {
-            title: 'Dashboard - SB Admin Angular',
+            title: 'Dashboard - TB Event Manager',
             breadcrumbs: [
                 {
                     text: 'Dashboard',
@@ -25,45 +26,45 @@ export const ROUTES: Routes = [
                 },
             ],
         } as SBRouteData,
-        canActivate: [],
+        canActivate: [AuthGuard],
         component: dashboardContainers.DashboardComponent,
     },
-    {
-        path: 'static',
-        data: {
-            title: 'Dashboard Static - SB Admin Angular',
-            breadcrumbs: [
-                {
-                    text: 'Dashboard',
-                    link: '/dashboard',
-                },
-                {
-                    text: 'Static',
-                    active: true,
-                },
-            ],
-        } as SBRouteData,
-        canActivate: [],
-        component: dashboardContainers.StaticComponent,
-    },
-    {
-        path: 'light',
-        data: {
-            title: 'Dashboard Light - SB Admin Angular',
-            breadcrumbs: [
-                {
-                    text: 'Dashboard',
-                    link: '/dashboard',
-                },
-                {
-                    text: 'Light',
-                    active: true,
-                },
-            ],
-        } as SBRouteData,
-        canActivate: [],
-        component: dashboardContainers.LightComponent,
-    },
+    // {
+    //     path: 'static',
+    //     data: {
+    //         title: 'Dashboard Static - SB Admin Angular',
+    //         breadcrumbs: [
+    //             {
+    //                 text: 'Dashboard',
+    //                 link: '/dashboard',
+    //             },
+    //             {
+    //                 text: 'Static',
+    //                 active: true,
+    //             },
+    //         ],
+    //     } as SBRouteData,
+    //     canActivate: [AuthGuard],
+    //     component: dashboardContainers.StaticComponent,
+    // },
+    // {
+    //     path: 'light',
+    //     data: {
+    //         title: 'Dashboard Light - SB Admin Angular',
+    //         breadcrumbs: [
+    //             {
+    //                 text: 'Dashboard',
+    //                 link: '/dashboard',
+    //             },
+    //             {
+    //                 text: 'Light',
+    //                 active: true,
+    //             },
+    //         ],
+    //     } as SBRouteData,
+    //     canActivate: [AuthGuard],
+    //     component: dashboardContainers.LightComponent,
+    // },
 ];
 
 @NgModule({

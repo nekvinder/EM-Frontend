@@ -1,4 +1,5 @@
-import { UserService } from '@modules/auth/services';
+import { UserService } from '../../../app-common/services/user.service';
+
 import { MockUser, User } from '@testing/mocks';
 import { Observable, of } from 'rxjs';
 

@@ -4,6 +4,7 @@
 
 export const environment = {
     production: false,
+    base_url: 'http://13.233.104.142:8000/',
 };
 
 /*
