@@ -21,12 +21,12 @@ export const ROUTES: Routes = [
             title: 'Dashboard - TB Event Manager',
             breadcrumbs: [
                 {
-                    text: 'Dashboard',
+                    text: 'Events',
                     active: true,
                 },
             ],
         } as SBRouteData,
-        canActivate: [AuthGuard],
+        canActivate: [],
         component: dashboardContainers.DashboardComponent,
     },
     // {

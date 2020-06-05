@@ -3,15 +3,15 @@ import { SideNavItems, SideNavSection } from '@modules/navigation/models';
 export const sideNavSections: SideNavSection[] = [
     {
         text: 'Events',
-        items: ['dashboard'],
+        items: ['dashboard', 'events'],
     },
+    // {
+    //     text: 'Admin',
+    //     items: ['layouts', 'pages'],
+    // },
     {
-        text: 'Admin',
-        items: ['layouts', 'pages'],
-    },
-    {
-        text: 'About',
-        items: ['charts', 'tables'],
+        text: 'Help',
+        items: ['documentation', 'about'],
     },
 ];
 
@@ -21,6 +21,32 @@ export const sideNavItems: SideNavItems = {
         text: 'Dashboard',
         link: '/dashboard',
     },
+    events: {
+        icon: 'columns',
+        text: 'Events',
+        submenu: [
+            {
+                text: 'Create Event',
+                link: '/events/create',
+            },
+            {
+                text: 'List Events',
+                link: '/events/list',
+            },
+        ],
+    },
+
+    documentation: {
+        icon: 'columns',
+        text: 'Guide',
+        link: '/docs/guide',
+    },
+    about: {
+        icon: 'columns',
+        text: 'About Us',
+        link: '/docs/about',
+    },
+
     layouts: {
         icon: 'columns',
         text: 'Layouts',
