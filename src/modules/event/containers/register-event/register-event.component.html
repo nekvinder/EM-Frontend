@@ -1,0 +1,84 @@
+<sb-layout-dashboard>
+    <sb-dashboard-head title="Register For Event" [hideBreadcrumbs]="false"></sb-dashboard-head>
+    <div class="row">
+        <div class="col-12 col-md-12 col-lg-12">
+            <form [formGroup]="regTypeForm">
+                <div class="form-group row">
+                    <label for="regType" class="col-sm-2 col-form-label"> REGISTRATION TYPE</label>
+                    <div class="col-sm-10">
+                        <select formControlName="regType" (change)="regTypeChanged()" class="form-control col-4">
+                            <option *ngFor="let prf of regTypes" [ngValue]="prf">
+                                {{ prf }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div *ngIf="!(this.regTypeForm.controls['regType'].value==='Individual')" class="form-group row">
+                    <label for="participantNum" class="col-sm-2 col-form-label">No. of Participants</label>
+                    <div class="col-sm-10">
+                        <select formControlName="participantNum" (change)="regTypeChanged()" class="form-control">
+                            <option *ngFor="let prf of [1,2,3,4]" [ngValue]="prf">
+                                {{ prf }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="groupName" class="col-sm-2 col-form-label">Team Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" formControlName="groupName">
+                    </div>
+                </div>
+            </form>
+            <form [formGroup]="registrationForm">
+                <div formArrayName="users" *ngFor="let user of usersArray.controls">
+                    <ng-container [formGroup]="user">
+                        <div class="form-group row">
+                            <label for="fullname" class="col-sm-2 col-form-label">NAME</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" formControlName="fullname">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="mobile" class="col-sm-2 col-form-label">MOBILE</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" formControlName="mobile">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="email" class="col-sm-2 col-form-label">EMAIL</label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" formControlName="email">
+                            </div>
+                        </div>
+                        <div class="form-group row" *ngIf="false">
+                            <label for="group_id" class="col-sm-2 col-form-label">GROUP ID</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" formControlName="group_id">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="idcardurl" class="image-upload-container col-sm-2 col-form-label">Id Card
+                                Image</label>
+                            <div class="col-sm-10">
+                                <input #imageInput type="file" accept="image/*" formControlName="idcardurl"
+                                    (change)="processFile(imageInput,user)">
+                            </div>
+                        </div>
+                        <span *ngIf="user.get('email').hasError('email')" class="badge badge-danger">
+                            Incorrent email!!</span>
+                    </ng-container>
+                </div>
+                <!-- <div class="col-lg-12 col-md-12 col-12"> -->
+                <!-- <div class="form-group center-text p-t-40"> -->
+                <!-- <button type="submit" [disabled]="!registrationForm.valid"
+                            class="btn btn-primary">Register</button> -->
+                <!-- </div> -->
+                <!-- </div> -->
+            </form>
+        </div>
+        <sb-preview-registration [modalService]="modalService" [oneImageExists]="oneImageExists"
+            [regTypeForm]="regTypeForm" [registrationForm]="registrationForm" (onSumbitPreview)="submitForm()">
+        </sb-preview-registration>
+    </div>
+</sb-layout-dashboard>

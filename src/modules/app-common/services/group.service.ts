@@ -11,9 +11,11 @@ import { environment } from '../../../environments/environment';
 export class GroupService {
     constructor(private http: HttpClient) {}
 
-    addGroup(name: string): Observable<Object> {
+    addGroup(name: string, eventId: number): Observable<Object> {
         let frmData: FormData = new FormData();
         frmData.append('name', name);
+        frmData.append('eventId', eventId.toString());
+
         return this.http.post(`${environment.base_url}Group/?format=json`, frmData);
     }
     getGroups(): Observable<Group[]> {

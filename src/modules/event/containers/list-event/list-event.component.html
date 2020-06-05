@@ -1,0 +1,40 @@
+<sb-layout-dashboard>
+    <sb-dashboard-head title="Events List" [hideBreadcrumbs]="false"></sb-dashboard-head>
+    <div class="row">
+        <div class="col-12 col-md-12 col-lg-12">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Event Id</th>
+                            <th>Event Name</th>
+                            <th>Starts On</th>
+                            <th>Ends On</th>
+                            <th>Registration Link</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let e of events">
+                            <td>{{e.id}}</td>
+                            <td>{{e.name}}</td>
+                            <td>{{e.start}}</td>
+                            <td>{{e.end}}</td>
+                            <td>
+                                <a routerLink="../register/{{e.id}}" target="_blank"><button type="button"
+                                        class="btn btn-warning btn-sm">Open</button>
+                                </a>
+                                <button (click)="copyMessage(e.id)" type="button"
+                                    class="btn btn-warning btn-sm">Copy</button>
+                            </td>
+                            <td class="icon-action">
+                                <button type="button" class="btn btn-primary btn-sm">View Registrations</button>
+                                <!-- <a><i class="fa fa-eye" data-toggle="modal"></i></a><a><i class="fa fa-trash"></i></a> -->
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</sb-layout-dashboard>

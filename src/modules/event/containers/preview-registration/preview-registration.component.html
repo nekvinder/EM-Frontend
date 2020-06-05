@@ -1,0 +1,104 @@
+            <ng-template #content let-modal>
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="modal-basic-title">Preview Entries</h4>
+                            <button type="button" class="close" aria-label="Close"
+                                (click)="modal.dismiss('Cross click')">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-12 col-md-12 col-lg-12">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Registration Type</th>
+                                                    <td>{{this.regTypeForm.get('regType').value}}</td>
+                                                </tr>
+                                                <tr *ngIf="this.regTypeForm.get('regType').value!='Individual'">
+                                                    <th>Team Members Count</th>
+                                                    <td>{{this.regTypeForm.get('participantNum').value}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Team Name</th>
+                                                    <td>{{this.regTypeForm.get('groupName').value}}</td>
+                                                </tr>
+                                            </thead>
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col" sbSortable="name"><span>Participant Name</span>
+                                                        <sb-sort-icon *ngIf='sortedColumn === "name"'
+                                                            [direction]="sortedDirection">
+                                                        </sb-sort-icon>
+                                                    </th>
+                                                    <th scope="col" sbSortable="area"><span>Mobile</span>
+                                                        <sb-sort-icon *ngIf='sortedColumn === "area"'
+                                                            [direction]="sortedDirection">
+                                                        </sb-sort-icon>
+                                                    </th>
+                                                    <th scope="col" sbSortable="population"><span>Email Id</span>
+                                                        <sb-sort-icon *ngIf='sortedColumn === "population"'
+                                                            [direction]="sortedDirection">
+                                                        </sb-sort-icon>
+                                                    </th>
+                                                    <th scope="col" sbSortable="population" *ngIf="oneImageExists">
+                                                        <span>ID
+                                                            Card</span>
+                                                        <sb-sort-icon *ngIf='sortedColumn === "population"'
+                                                            [direction]="sortedDirection">
+                                                        </sb-sort-icon>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let country of usersArray.controls; index as i">
+
+                                                    <th scope="row">{{ i+1 }}</th>
+                                                    <td>
+                                                        <ngb-highlight [result]="country.get('mobile').value "
+                                                            [term]="country.get('fullname').value">
+                                                        </ngb-highlight>
+                                                    </td>
+                                                    <td>
+                                                        <ngb-highlight [result]="country.get('mobile').value "
+                                                            [term]="country.get('mobile').value">
+                                                        </ngb-highlight>
+                                                    </td>
+                                                    <td>
+                                                        <ngb-highlight [result]="country.get('email').value "
+                                                            [term]="country.get('email').value">
+                                                        </ngb-highlight>
+                                                    </td>
+                                                    <td *ngIf="country.get('idcardimagesrc').value">
+                                                        <img [src]="country.get('idcardimagesrc').value"
+                                                            class="small-image" placement="left"
+                                                            [ngbPopover]="popContent" triggers="mouseenter:mouseleave"
+                                                            popoverTitle="ID Card">
+
+                                                        <ng-template #popContent let-greeting="greeting">
+                                                            <img [src]="country.get('idcardimagesrc').value"
+                                                                width="240px" height="240px">
+                                                        </ng-template>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-dark"
+                                (click)="modal.close('Save click')">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+
+            <button [disabled]="!registrationForm.valid" (click)="open(content)" class=" btn
+    btn-primary">Submit</button>
