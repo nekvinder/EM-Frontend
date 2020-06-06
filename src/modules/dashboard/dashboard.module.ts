@@ -21,6 +21,7 @@ import * as dashboardGuards from './guards';
 
 /* Services */
 import * as dashboardServices from './services';
+import { GroupService } from '../app-common/services/group.service';
 
 @NgModule({
     imports: [
@@ -33,7 +34,7 @@ import * as dashboardServices from './services';
         ChartsModule,
         TablesModule,
     ],
-    providers: [...dashboardServices.services, ...dashboardGuards.guards],
+    providers: [...dashboardServices.services, ...dashboardGuards.guards, GroupService],
     declarations: [...dashboardContainers.containers, ...dashboardComponents.components],
     exports: [...dashboardContainers.containers, ...dashboardComponents.components],
 })

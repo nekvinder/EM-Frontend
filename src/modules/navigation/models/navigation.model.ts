@@ -19,9 +19,11 @@ export interface SideNavItem {
     text: string;
     link?: string;
     submenu?: SideNavItem[];
+    isHidden?: boolean;
 }
 
 export interface SideNavSection {
     text?: string;
     items: string[];
+    isHidden?: boolean;
 }

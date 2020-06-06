@@ -18,8 +18,8 @@
                         <tr *ngFor="let e of events">
                             <td>{{e.id}}</td>
                             <td>{{e.name}}</td>
-                            <td>{{e.start}}</td>
-                            <td>{{e.end}}</td>
+                            <td>{{e.start|date :'medium'}}</td>
+                            <td>{{e.end|date :'medium'}}</td>
                             <td>
                                 <a routerLink="../register/{{e.id}}" target="_blank"><button type="button"
                                         class="btn btn-warning btn-sm">Open</button>

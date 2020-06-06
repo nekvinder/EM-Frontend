@@ -35,10 +35,13 @@ export class LoginComponent implements OnInit {
                         if (res.length > 0) {
                             alert('logged in');
                             this.authService.login(res[0]);
-                            if (!this.route.snapshot.params.returnUrl) this.router.navigate(['']);
-                            this.router.navigate([
-                                this.route.snapshot.queryParamMap.get('returnUrl'),
-                            ]);
+                            if (!this.route.snapshot.params.returnUrl) {
+                                this.router.navigate(['/']);
+                            } else {
+                                this.router.navigate([
+                                    this.route.snapshot.queryParamMap.get('returnUrl'),
+                                ]);
+                            }
                         } else {
                             alert('Error.Please Retry');
                         }

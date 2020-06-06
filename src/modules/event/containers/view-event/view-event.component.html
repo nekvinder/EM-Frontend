@@ -8,7 +8,8 @@
                         <tr>
                             <th>Registration Id</th>
                             <th>Group Name</th>
-                            <th>Registration type</th>
+                            <th>Registration Type</th>
+                            <th>Registration Date</th>
                             <th>Participants</th>
                             <th *ngIf="false">Action</th>
                         </tr>
@@ -19,6 +20,9 @@
                             <td>{{group.name}}</td>
                             <td><span
                                     *ngIf="group.participants">{{regTypes[group.participants[0].registration_type]}}</span>
+                            </td>
+                            <td><span
+                                    *ngIf="group.participants">{{group.participants[0].created_at|date:'medium'}}</span>
                             </td>
                             <td><span class="badge badge-primary"
                                     *ngFor="let pname of group.participants">{{pname.fullname}}</span>

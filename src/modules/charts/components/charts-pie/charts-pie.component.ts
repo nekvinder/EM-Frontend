@@ -5,6 +5,7 @@ import {
     ElementRef,
     OnInit,
     ViewChild,
+    Input,
 } from '@angular/core';
 import { Chart } from 'chart.js';
 
@@ -16,6 +17,7 @@ import { Chart } from 'chart.js';
 })
 export class ChartsPieComponent implements OnInit, AfterViewInit {
     @ViewChild('myPieChart') myPieChart!: ElementRef<HTMLCanvasElement>;
+    // @Input
     chart!: Chart;
 
     constructor() {}
@@ -25,11 +27,11 @@ export class ChartsPieComponent implements OnInit, AfterViewInit {
         this.chart = new Chart(this.myPieChart.nativeElement, {
             type: 'pie',
             data: {
-                labels: ['Blue', 'Red', 'Yellow', 'Green'],
+                labels: ['Groups', 'Individuals'],
                 datasets: [
                     {
-                        data: [12.21, 15.58, 11.25, 8.32],
-                        backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
+                        data: [15.21, 15.58],
+                        backgroundColor: ['#007bff', '#dc3545'],
                     },
                 ],
             },

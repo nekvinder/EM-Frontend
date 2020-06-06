@@ -6,12 +6,14 @@ export class Participant {
     registration_type: number;
     idcard: number;
     group_id: number;
+    created_at: Date;
 }
 
 export class Group {
     id: number;
     name: string;
     participants: Participant[];
+    registration_type: number;
 }
 export class IdCard {
     id: number;

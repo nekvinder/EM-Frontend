@@ -84,9 +84,11 @@ export class RegisterEventComponent implements OnInit {
         //     alert('Please enter group name');
         //     return;
         // }
-
+        let selectedregType = this.participantsService.regTypes.indexOf(
+            this.regTypeForm.controls['regType'].value
+        );
         this.groupsService
-            .addGroup(this.regTypeForm.get('groupName').value, this.eventId)
+            .addGroup(this.regTypeForm.get('groupName').value, this.eventId, selectedregType)
             .toPromise()
             .then(res => {
                 let usersSubsArray = [];

@@ -4,13 +4,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
+import { GroupService } from './group.service';
 
 @Injectable({
     providedIn: 'root',
 })
 export class ParticipantsService {
-    constructor(private http: HttpClient) {}
-    public regTypes = ['Individual', 'Group'];
+    constructor(private http: HttpClient, private groupService: GroupService) {}
+    public regTypes = this.groupService.regTypes;
 
     getUsers(): Observable<Participant[]> {
         return this.http

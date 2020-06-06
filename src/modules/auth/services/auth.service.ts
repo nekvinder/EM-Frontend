@@ -28,7 +28,7 @@ export class AuthService {
     }
 
     isCurrentLoggedIn() {
-        if (this.currentUserValue().id) {
+        if (this.currentUserValue().id >= 0 && this.currentUserValue().id) {
             return true;
         }
         return false;

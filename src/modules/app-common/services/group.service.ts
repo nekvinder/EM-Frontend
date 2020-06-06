@@ -10,11 +10,13 @@ import { environment } from '../../../environments/environment';
 })
 export class GroupService {
     constructor(private http: HttpClient) {}
+    regTypes = ['Individual', 'Group'];
 
-    addGroup(name: string, eventId: number): Observable<Object> {
+    addGroup(name: string, eventId: number, regType: number): Observable<Object> {
         let frmData: FormData = new FormData();
         frmData.append('name', name);
         frmData.append('eventId', eventId.toString());
+        frmData.append('registration_type', regType.toString());
 
         return this.http.post(`${environment.base_url}Group/?format=json`, frmData);
     }
