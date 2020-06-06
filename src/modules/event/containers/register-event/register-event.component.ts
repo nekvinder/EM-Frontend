@@ -40,13 +40,13 @@ export class RegisterEventComponent implements OnInit {
 
     getUserFormGroup(): FormGroup {
         return new FormGroup({
-            fullname: new FormControl('nekvindrer', Validators.required),
-            mobile: new FormControl('9460760482', [
+            fullname: new FormControl('', Validators.required),
+            mobile: new FormControl('', [
                 Validators.required,
                 Validators.maxLength(10),
                 Validators.minLength(10),
             ]),
-            email: new FormControl('nek@gmail.com', [Validators.required, Validators.email]),
+            email: new FormControl('', [Validators.required, Validators.email]),
             idcardurl: new FormControl(),
             idcardimagesrc: new FormControl(),
             group_id: new FormControl(''),
