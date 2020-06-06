@@ -1,100 +1,112 @@
-# SB Admin Angular
+# Event Registration WebApp
+A fullstack Webapp to manage participants registrations for multiple events.
 
-SB Admin Angular is a free and open-sourced Bootstrap themed Angular 9 starter project.
+##Concept
+* The webapp consideres **Admin** users to be the organisers of the events.
+* Then different participants can register into those events, and their details would be managed and presented to the **Admin** users.
+* Different admin users share the access, and can simultaneously manage participants details.
 
-It shares the same project structure and subset of tooling from our professional offering,
-[SB Admin Pro Angular](https://themes.startbootstrap.com/sb-admin-pro-angular/),
-so much of the [SB Admin Pro Angular Documentation](https://docs.startbootstrap.com/sb-admin-pro-angular/quickstart) is applicable.
+##Functional Structure:
 
-In particular the documentation for [Structure](https://docs.startbootstrap.com/sb-admin-pro-angular/structure-root-level),
-and the documentation for [SBPro Schematics](https://docs.startbootstrap.com/sb-admin-pro-angular/development-general#sb-pro-schematics)
+###Features:
 
-SB Admin Angular comes with a base implementation of navigation and layouts.
+#### Core
 
-For professionally designed components (including an advanced SideNav), 100% code coverage,
-starter cypress tests and more, please consider our professional offering:
-[SB Admin Pro Angular](https://themes.startbootstrap.com/sb-admin-pro-angular/)
+###### Frontend
+* Data Capture - All mandatory fields(Full Name,Mobile,E-Mail,Upload ID Card).
+* Provides a preview Screen which list all the fields above and ID card in the preview.
+* On Submission Registration ID is generated and displayed.
+* Stores all the information captured in a local database.
+* Registration Date is system generated.
 
-## Quick Start
+###### Backend
+* Backend works as a separate service.
+* REST Api is used for UI and Backend
+* Backend use ORM(Object-relational mapping) to store data in DBMS, hence supports :
+	* SQlite (Currently Used)
+	* MySql
+	* MongoDB
 
-```bash
-git clone git@github.com:startbootstrap/sb-admin-angular.git
-cd sb-admin-angular
-npm install
-npm start
-```
 
-`npm start` should open a browser window to <http://localhost:4200>
+#### Intermediate
+- Charts on the basis of Registration types for separate events.
+- Admin login functionality.
+- Event creation and management by Administrators.
+- List all Registrations in Admin view.
+- View Registraion link for admin to view each registration details.
 
-By default angular runs on port 4200. To change this port you can run:
+#### Addon
+- Responsive Frontend UI.
+- The architecture is easily scalable.
 
-```bash
-# This starts the development server on port 4205,
-# but you can use any port you'd like
-export PORT=4205 && npm start
-```
 
-## Tests
 
-### Unit Tests
+##Tech Stack:
+> Frontend: Angular 9.1 + Bootstrap 4.0
+> Backend: Python-3 (Django + Rest Framework)
 
-```bash
-npm run test
-```
+####Frontend
+The frontend uses bootstrap designs to provide a cross-platform responsive layout, making the app accessible on mobile devices too.
 
-### e2e
+#####Admin UI
+* Admin Login
+![Home View]()
 
-```bash
-npm run e2e
-```
+* Dashboard
+![Home View]()
 
-## Production
+* Create Event
+![Home View]()
 
-SB Admin Angular come with a production ready Dockerfile and build scripts.
+* Events list 
+![Home View]()
 
-You can get Docker [here](https://www.docker.com/get-started)
+* Participants list
+![Home View]()
 
-```bash
-npm run docker:build
-npm run docker:run
-```
+* About
+![Home View]()
 
-## Generate Code
+#####Users UI
 
-```bash
-npm run generate:module -- --path src/modules --name Test
-npm run generate:component -- --path src/modules/test/containers --name Test
-npm run generate:component -- --path src/modules/test/components --name Test
-npm run generate:directive -- --path src/modules/test/directives --name Test
-npm run generate:service -- --path src/modules/test/services --name Test
-```
+* Dashboard
+![Home View]()
 
-_Note: Creating a Component and a Container use the same command,
-the difference is just the paths and how they are used._
+* Events list 
+![Home View]()
 
-### MVCC
+* Event Registration form
+![Home View]()
 
-Containers and Components are both Angular Components, but used in different ways.
+* Participants list
+![Home View]()
 
-Containers should arrange Components.
+####Backend
+The backend is designed in Python's Django framework and simply exposes REST Api endpoints which are configured into the
 
-Obviously this can become subjective, but MVCC is the paradigm that we subscribe to.
 
-## Troubleshooting
+## Configuration
 
-### npm start
 
-If you receive memory issues adjust
-`max_old_space_size` in the `ng` command of the `package.json`:
+####Requirements
 
-```json
-"ng": "cross-env NODE_OPTIONS=--max_old_space_size=2048 ./node_modules/.bin/ng",
-```
+Run : 'cd Backend/EventRegistrationBackend/'
+>pip3 install -r req.txt
 
-You can adjust 2048 to any number you need.
 
-For more information about why you may need `--max_old_space_size`
-see [this article](https://medium.com/@ashleydavis75/node-js-memory-limitations-30d3fe2664c0).
+####Database
 
-Keep in mind that this project only uses node to build the angular application.
-There is no production dependency on node.
+> Database provider  **sqlite**
+
+####Frontend in angular 7
+
+To run:
+
+- npm install
+- ng serve
+
+####Backend in Python3 + Django + Django-rest-framework
+
+To run
+
+>python3 manage.py runserver
