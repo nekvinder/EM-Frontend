@@ -6,7 +6,7 @@ import { AuthService } from '../../services/auth.service';
 
 @Component({
     selector: 'sb-login',
-    changeDetection: ChangeDetectionStrategy.OnPush,
+    // changeDetection: ChangeDetectionStrategy.OnPush,
     templateUrl: './login.component.html',
     styleUrls: ['login.component.scss'],
 })

@@ -35,10 +35,12 @@ export class LayoutDashboardComponent implements OnInit, OnDestroy {
         private authService: AuthService
     ) {
         this.sideNavData = new SideNavData();
-        this.sideNavItems = this.sideNavData.sideNavItems(authService.isCurrentLoggedIn());
-        this.sideNavSections = this.sideNavData.sideNavSections(authService.isCurrentLoggedIn());
-        console.log(this.sideNavItems);
-        console.log(this.sideNavSections);
+        authService.currentUser.subscribe(s => {
+            // alert('called');
+            this.sideNavItems = this.sideNavData.sideNavItems(authService.isLoggedInValue());
+            this.sideNavSections = this.sideNavData.sideNavSections(authService.isLoggedInValue());
+            this.changeDetectorRef.markForCheck();
+        });
     }
     ngOnInit() {
         if (this.light) {

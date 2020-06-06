@@ -23,11 +23,7 @@ export class SideNavComponent implements OnInit, OnDestroy {
         public navigationService: NavigationService,
         public userService: UserService,
         public authService: AuthService
-    ) {
-        if (!this.authService.isCurrentLoggedIn()) {
-            // alert('not admin');
-        }
-    }
+    ) {}
 
     ngOnInit() {}
 

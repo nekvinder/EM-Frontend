@@ -13,7 +13,7 @@ export class CreateEventComponent implements OnInit {
     eventForm = new FormGroup({
         name: new FormControl(),
         description: new FormControl(),
-        start: new FormControl(),
+        start: new FormControl(Date.now().toLocaleString()),
         end: new FormControl(),
     });
     ngOnInit(): void {}

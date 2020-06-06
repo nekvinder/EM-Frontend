@@ -11,7 +11,7 @@
                             <th>Starts On</th>
                             <th>Ends On</th>
                             <th>Registration Link</th>
-                            <th *ngIf="this.authService.isCurrentLoggedIn()">Action</th>
+                            <th *ngIf="(this.authService.isLoggedIn | async)">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -27,7 +27,8 @@
                                 <button (click)="copyMessage(e.id)" type="button"
                                     class="btn btn-warning btn-sm">Copy</button>
                             </td>
-                            <td class="icon-action" *ngIf="this.authService.isCurrentLoggedIn()">
+
+                            <td class="icon-action" *ngIf="(this.authService.isLoggedIn | async)">
                                 <a routerLink="../view/{{e.id}}"><button type="button"
                                         class="btn btn-primary btn-sm">View Registrations</button>
                                 </a>

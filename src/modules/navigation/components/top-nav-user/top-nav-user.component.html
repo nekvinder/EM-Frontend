@@ -4,8 +4,7 @@
         aria-haspopup="true" aria-expanded="false">
         <fa-icon [icon]='["fas", "user"]'></fa-icon>
     </a>
-    <div *ngIf="authService.isCurrentLoggedIn()" class="dropdown-menu dropdown-menu-right" ngbDropdownMenu
-        aria-labelledby="dropdownUser">
+    <div *ngIf="user.id>-1" class="dropdown-menu dropdown-menu-right" ngbDropdownMenu aria-labelledby="dropdownUser">
         <h6 class="dropdown-header">
             <div class="dropdown-user-details">
                 <div class="dropdown-user-details-name">{{ user.name }}</div>
@@ -18,8 +17,11 @@
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" (click)="logout()">Logout</a>
     </div>
-    <div *ngIf="!authService.isCurrentLoggedIn()" class="dropdown-menu dropdown-menu-right" ngbDropdownMenu
-        aria-labelledby="dropdownUser">
+
+</li>
+<li *ngIf="!authService.isLoggedInValue()" class="nav-item dropdown dropdown-user no-caret" ngbDropdown
+    placement="bottom-right" display="dynamic">
+    <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu aria-labelledby="dropdownUser">
         <a class="dropdown-item" routerLink="/auth/login">Admin Login</a>
     </div>
 </li>

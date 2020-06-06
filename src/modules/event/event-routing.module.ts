@@ -46,7 +46,15 @@ export const ROUTES: Routes = [
     },
     {
         path: 'view/:id',
-        canActivate: [],
+        canActivate: [AuthGuard],
+        component: eventContainers.ViewEventComponent,
+        data: {
+            title: 'View Event',
+        } as SBRouteData,
+    },
+    {
+        path: 'view-registrations/:id',
+        canActivate: [AuthGuard],
         component: eventContainers.ViewEventComponent,
         data: {
             title: 'View Event',
