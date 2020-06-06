@@ -1,5 +1,6 @@
 <sb-layout-dashboard>
-    <sb-dashboard-head title="Create Event" [hideBreadcrumbs]="false"></sb-dashboard-head>
+    <sb-dashboard-head title="Create Event" *ngIf="!eventId" [hideBreadcrumbs]="false"></sb-dashboard-head>
+    <sb-dashboard-head title="Update Event" *ngIf="eventId" [hideBreadcrumbs]="false"></sb-dashboard-head>
     <div class="row">
         <div class="col-12 col-md-12 col-lg-12">
             <form [formGroup]="eventForm" (ngSubmit)="createEvent()">
@@ -24,14 +25,17 @@
                 <div class="form-group row">
                     <label for="end" class="col-sm-2 col-form-label">End of Event</label>
                     <div class="col-sm-10">
-                        <input type="datetime-local" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}"
-                            class="form-control" formControlName="end">
+                        <input type="datetime-local" class="form-control" formControlName="end">
                     </div>
                 </div>
                 <div class="col-lg-12 col-md-12 col-12">
-                    <div class="form-group center-text p-t-40">
+                    <div *ngIf="!eventId" class="form-group center-text p-t-40">
                         <button type="submit" [disabled]="!eventForm.valid" class="btn btn-primary">Create</button>
                     </div>
+                    <div *ngIf="eventId" class="form-group center-text p-t-40">
+                        <button type="submit" [disabled]="!eventForm.valid" class="btn btn-primary">Update</button>
+                    </div>
+                    <button *ngIf="false" (click)="getFormValidationErrors()">Check errors</button>
                 </div>
             </form>
         </div>

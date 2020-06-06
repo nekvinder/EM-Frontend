@@ -1,5 +1,5 @@
 import { SideNavItems, SideNavSection } from '@modules/navigation/models';
-import { AuthService } from '@modules/auth/services/auth.service';
+import { AuthService } from '@modules/app-common/services/auth.service';
 
 export class SideNavData {
     public sideNavSections(isLoggedIn: boolean): SideNavSection[] {

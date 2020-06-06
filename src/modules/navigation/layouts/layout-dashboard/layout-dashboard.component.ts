@@ -10,11 +10,11 @@ import {
 import { SideNavData } from '@modules/navigation/data';
 import { NavigationService } from '@modules/navigation/services';
 import { Subscription } from 'rxjs';
-import { AuthService } from '../../../auth/services/auth.service';
+import { AuthService } from '@modules/app-common/services/auth.service';
 
 @Component({
     selector: 'sb-layout-dashboard',
-    // changeDetection: ChangeDetectionStrategy.OnPush,
+    // // changeDetection: ChangeDetectionStrategy.OnPush,
     templateUrl: './layout-dashboard.component.html',
     styleUrls: ['layout-dashboard.component.scss'],
 })
@@ -37,8 +37,8 @@ export class LayoutDashboardComponent implements OnInit, OnDestroy {
         this.sideNavData = new SideNavData();
         authService.currentUser.subscribe(s => {
             // alert('called');
-            this.sideNavItems = this.sideNavData.sideNavItems(authService.isLoggedInValue());
-            this.sideNavSections = this.sideNavData.sideNavSections(authService.isLoggedInValue());
+            this.sideNavItems = this.sideNavData.sideNavItems(s ? true : false);
+            this.sideNavSections = this.sideNavData.sideNavSections(s ? true : false);
             this.changeDetectorRef.markForCheck();
         });
     }

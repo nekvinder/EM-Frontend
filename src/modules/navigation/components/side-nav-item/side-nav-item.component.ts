@@ -3,7 +3,7 @@ import { SBRouteData, SideNavItem } from '@modules/navigation/models';
 
 @Component({
     selector: 'sb-side-nav-item',
-    changeDetection: ChangeDetectionStrategy.OnPush,
+    // changeDetection: ChangeDetectionStrategy.OnPush,
     templateUrl: './side-nav-item.component.html',
     styleUrls: ['side-nav-item.component.scss'],
 })

@@ -5,7 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthGuard } from '../modules/auth/guards/auth.guard';
-import { AuthService } from '../modules/auth/services/auth.service';
+import { AuthService } from '@modules/app-common/services/auth.service';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({

@@ -12,7 +12,7 @@ import { GroupService } from '../../../app-common/services/group.service';
 
 @Component({
     selector: 'sb-charts-event-pie-regtype',
-    // changeDetection: ChangeDetectionStrategy.OnPush,
+    // // changeDetection: ChangeDetectionStrategy.OnPush,
     templateUrl: './charts-pie.component.html',
     styleUrls: ['charts-pie.component.scss'],
 })
@@ -20,6 +20,7 @@ export class ChartsEventPieRegtypeComponent implements OnInit, AfterViewInit {
     @ViewChild('myPieChart') myPieChart!: ElementRef<HTMLCanvasElement>;
     @Input() eventId: number;
     chart!: Chart;
+    hasRegs: boolean = true;
     regTypes;
 
     constructor(private groupService: GroupService) {
@@ -34,26 +35,31 @@ export class ChartsEventPieRegtypeComponent implements OnInit, AfterViewInit {
             .toPromise()
             .then(val => {
                 let totalGroups: number = val.length;
-                let Individuals: number = 0;
-                val.forEach(f => {
-                    console.log('de', f.registration_type, this.regTypes.indexOf('Individual'));
-                    if (f.registration_type == this.regTypes.indexOf('Individual')) {
-                        Individuals++;
-                    }
-                });
-                console.log('data', totalGroups - Individuals, Individuals);
-                this.chart = new Chart(this.myPieChart.nativeElement, {
-                    type: 'pie',
-                    data: {
-                        labels: ['Groups', 'Individuals'],
-                        datasets: [
-                            {
-                                data: [totalGroups - Individuals, Individuals],
-                                backgroundColor: ['#007bff', '#dc3545'],
-                            },
-                        ],
-                    },
-                });
+                if (totalGroups > 0) {
+                    this.hasRegs = true;
+                } else {
+                    this.hasRegs = false;
+                }
+                if (this.hasRegs) {
+                    let Individuals: number = 0;
+                    val.forEach(f => {
+                        if (f.registration_type == this.regTypes.indexOf('Individual')) {
+                            Individuals++;
+                        }
+                    });
+                    this.chart = new Chart(this.myPieChart.nativeElement, {
+                        type: 'pie',
+                        data: {
+                            labels: ['Groups', 'Individuals'],
+                            datasets: [
+                                {
+                                    data: [totalGroups - Individuals, Individuals],
+                                    backgroundColor: ['#007bff', '#dc3545'],
+                                },
+                            ],
+                        },
+                    });
+                }
             });
     }
 }

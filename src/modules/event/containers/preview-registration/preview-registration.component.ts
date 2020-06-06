@@ -19,7 +19,7 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'sb-preview-registration',
-    // changeDetection: ChangeDetectionStrategy.OnPush,
+    // // changeDetection: ChangeDetectionStrategy.OnPush,
     templateUrl: './preview-registration.component.html',
     styleUrls: ['preview-registration.component.scss'],
 })

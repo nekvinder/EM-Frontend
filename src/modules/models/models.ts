@@ -35,4 +35,5 @@ export class Event {
     description: string;
     start: Date;
     end: Date;
+    active: boolean;
 }

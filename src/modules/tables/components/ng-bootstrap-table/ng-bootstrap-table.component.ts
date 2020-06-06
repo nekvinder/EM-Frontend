@@ -14,7 +14,7 @@ import { Observable } from 'rxjs';
 
 @Component({
     selector: 'sb-ng-bootstrap-table',
-    changeDetection: ChangeDetectionStrategy.OnPush,
+    // changeDetection: ChangeDetectionStrategy.OnPush,
     templateUrl: './ng-bootstrap-table.component.html',
     styleUrls: ['ng-bootstrap-table.component.scss'],
 })

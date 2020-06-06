@@ -10,7 +10,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
     selector: 'sb-view-event',
-    // changeDetection: ChangeDetectionStrategy.OnPush,
+    // // changeDetection: ChangeDetectionStrategy.OnPush,
     templateUrl: './view-event.component.html',
     styleUrls: ['view-event.component.scss'],
 })

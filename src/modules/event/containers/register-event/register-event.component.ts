@@ -10,7 +10,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
     selector: 'sb-register-event',
-    // changeDetection: ChangeDetectionStrategy.OnPush,
+    // // changeDetection: ChangeDetectionStrategy.OnPush,
     templateUrl: './register-event.component.html',
     styleUrls: ['register-event.component.scss'],
 })

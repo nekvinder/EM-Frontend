@@ -9,9 +9,9 @@
             </ng-container>
         </div>
     </div>
-    <div *ngIf="this.authService.isLoggedInValue()" class="sb-sidenav-footer">
+    <div *ngIf="currentUser" class="sb-sidenav-footer">
         <div class="small">Logged in as:</div>
-        <span *ngIf="authService.currentUser | async as user">{{user.name}}</span>
+        <span>{{ currentUser.name}}</span>
     </div>
 
 </nav>

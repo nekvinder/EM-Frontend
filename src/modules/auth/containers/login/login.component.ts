@@ -2,11 +2,11 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { UserService } from '../../../app-common/services/user.service';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '@modules/app-common/services/auth.service';
 
 @Component({
     selector: 'sb-login',
-    // changeDetection: ChangeDetectionStrategy.OnPush,
+    // // changeDetection: ChangeDetectionStrategy.OnPush,
     templateUrl: './login.component.html',
     styleUrls: ['login.component.scss'],
 })
@@ -33,10 +33,12 @@ export class LoginComponent implements OnInit {
                     console.log(res);
                     if (res) {
                         if (res.length > 0) {
-                            alert('logged in');
+                            // alert('logged in');
+                            console.log('debug 11', res);
                             this.authService.login(res[0]);
+
                             if (!this.route.snapshot.params.returnUrl) {
-                                this.router.navigate(['/']);
+                                this.router.navigate(['/dashboard']);
                             } else {
                                 this.router.navigate([
                                     this.route.snapshot.queryParamMap.get('returnUrl'),

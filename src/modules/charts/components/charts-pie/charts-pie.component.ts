@@ -11,7 +11,7 @@ import { Chart } from 'chart.js';
 
 @Component({
     selector: 'sb-charts-pie',
-    changeDetection: ChangeDetectionStrategy.OnPush,
+    // changeDetection: ChangeDetectionStrategy.OnPush,
     templateUrl: './charts-pie.component.html',
     styleUrls: ['charts-pie.component.scss'],
 })

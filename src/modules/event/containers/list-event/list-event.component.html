@@ -11,7 +11,7 @@
                             <th>Starts On</th>
                             <th>Ends On</th>
                             <th>Registration Link</th>
-                            <th *ngIf="(this.authService.isLoggedIn | async)">Action</th>
+                            <th *ngIf="currentUser">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -20,19 +20,30 @@
                             <td>{{e.name}}</td>
                             <td>{{e.start|date :'medium'}}</td>
                             <td>{{e.end|date :'medium'}}</td>
-                            <td>
-                                <a routerLink="../register/{{e.id}}" target="_blank"><button type="button"
-                                        class="btn btn-warning btn-sm">Open</button>
-                                </a>
-                                <button (click)="copyMessage(e.id)" type="button"
-                                    class="btn btn-warning btn-sm">Copy</button>
+                            <td class="center">
+                                <a ngbTooltip="Open registration URL" routerLink="../register/{{e.id}}"
+                                    target="_blank"><button type="button" class="btn btn-warning btn-sm"><i
+                                            class="fa fa-external-link" aria-hidden="true"
+                                            style="color: white"></i></button>
+                                </a>&nbsp;
+                                <button ngbTooltip="Copy registration URL" (click)="copyMessage(e.id)" type="button"
+                                    class="btn btn-warning btn-sm"><i class="fa fa-clone" aria-hidden="true"
+                                        style="color: white"></i></button>
                             </td>
 
-                            <td class="icon-action" *ngIf="(this.authService.isLoggedIn | async)">
-                                <a routerLink="../view/{{e.id}}"><button type="button"
-                                        class="btn btn-primary btn-sm">View Registrations</button>
+                            <td class="icon-action" *ngIf="currentUser">
+                                <a ngbTooltip="View Registration" routerLink="../view/{{e.id}}"><button type="button"
+                                        class="btn btn-primary btn-sm"><i class="fa fa-eye" aria-hidden="true"
+                                            style="color: white"></i></button>
+                                </a>&nbsp;
+                                <a ngbTooltip="Edit Event" routerLink="../create/{{e.id}}">
+                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-pencil"
+                                            aria-hidden="true" style="color: white"></i></button>
+                                </a>&nbsp;
+                                <a ngbTooltip="Delete Event" (click)="deleteEvent(e)">
+                                    <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash"
+                                            aria-hidden="true" style="color: white"></i></button>
                                 </a>
-
                                 <!-- <a><i class="fa fa-eye" data-toggle="modal"></i></a><a><i class="fa fa-trash"></i></a> -->
                             </td>
                         </tr>

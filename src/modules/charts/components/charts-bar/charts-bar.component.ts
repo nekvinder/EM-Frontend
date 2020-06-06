@@ -10,7 +10,7 @@ import { Chart } from 'chart.js';
 
 @Component({
     selector: 'sb-charts-bar',
-    changeDetection: ChangeDetectionStrategy.OnPush,
+    // changeDetection: ChangeDetectionStrategy.OnPush,
     templateUrl: './charts-bar.component.html',
     styleUrls: ['charts-bar.component.scss'],
 })

@@ -1,1 +1,2 @@
-<canvas #myPieChart></canvas>
+<canvas *ngIf="hasRegs" #myPieChart></canvas>
+<span *ngIf="!hasRegs">No Registrations yet!!!</span>

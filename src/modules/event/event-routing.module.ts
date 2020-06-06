@@ -29,6 +29,14 @@ export const ROUTES: Routes = [
         } as SBRouteData,
     },
     {
+        path: 'create/:id',
+        canActivate: [AuthGuard],
+        component: eventContainers.CreateEventComponent,
+        data: {
+            title: 'Update Event',
+        } as SBRouteData,
+    },
+    {
         path: 'list',
         canActivate: [],
         component: eventContainers.ListEventComponent,

@@ -16,7 +16,7 @@ import { UserService } from '../../../app-common/services/user.service';
 
 @Component({
     selector: 'sb-register',
-    changeDetection: ChangeDetectionStrategy.OnPush,
+    // changeDetection: ChangeDetectionStrategy.OnPush,
     templateUrl: './register.component.html',
     styleUrls: ['register.component.scss'],
 })
