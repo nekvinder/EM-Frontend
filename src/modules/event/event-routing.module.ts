@@ -52,10 +52,19 @@ export const ROUTES: Routes = [
             title: 'Register',
         } as SBRouteData,
     },
+
     {
         path: 'view/:id',
         canActivate: [AuthGuard],
         component: eventContainers.ViewEventComponent,
+        data: {
+            title: 'View Event',
+        } as SBRouteData,
+    },
+    {
+        path: 'viewGroup/:groupId',
+        canActivate: [AuthGuard],
+        component: eventContainers.ViewParticipantsComponent,
         data: {
             title: 'View Event',
         } as SBRouteData,

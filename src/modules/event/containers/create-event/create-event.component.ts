@@ -16,8 +16,8 @@ export class CreateEventComponent implements OnInit {
     eventForm = new FormGroup({
         name: new FormControl(),
         description: new FormControl(),
-        start: new FormControl(),
-        end: new FormControl(),
+        start: new FormControl(new Date().toISOString().toString().slice(0, -1)),
+        end: new FormControl(new Date().toISOString().toString().slice(0, -1)),
     });
     constructor(
         private eventService: EventService,
@@ -57,7 +57,9 @@ export class CreateEventComponent implements OnInit {
         });
     }
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        // console.log('deb', new Date().toISOString().toString());
+    }
 
     createEvent() {
         if (this.eventId) {

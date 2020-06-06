@@ -1,0 +1,73 @@
+<sb-layout-dashboard>
+    <sb-dashboard-head *ngIf="group" title="Registration Id : {{group.id}}" [hideBreadcrumbs]="false">
+    </sb-dashboard-head>
+    <div class="row" *ngIf="group">
+        <div class="col-12 col-md-12 col-lg-12">
+            <table class="table table-dark">
+                <tr>
+                    <th>Registration Type</th>
+                    <td>{{group.registration_type_value}}</td>
+                </tr>
+                <tr *ngIf="group.registration_type_value==='Group'">
+                    <th>Team Members Count</th>
+                    <td>{{group.participants.length}}</td>
+                </tr>
+                <tr>
+                    <th>Team Name</th>
+                    <td>{{group.name}}</td>
+                </tr>
+            </table>
+            <table class="table table-dark ">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col" sbSortable="name"><span>Participant Name</span>
+                            <sb-sort-icon *ngIf='sortedColumn === "name"' [direction]="sortedDirection">
+                            </sb-sort-icon>
+                        </th>
+                        <th scope="col" sbSortable="area"><span>Mobile</span>
+                            <sb-sort-icon *ngIf='sortedColumn === "area"' [direction]="sortedDirection">
+                            </sb-sort-icon>
+                        </th>
+                        <th scope="col" sbSortable="population"><span>Email Id</span>
+                            <sb-sort-icon *ngIf='sortedColumn === "population"' [direction]="sortedDirection">
+                            </sb-sort-icon>
+                        </th>
+                        <th scope="col" sbSortable="population" *ngIf="false">
+                            <span>ID
+                                Card</span>
+                            <sb-sort-icon *ngIf='sortedColumn === "population"' [direction]="sortedDirection">
+                            </sb-sort-icon>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let participant of group.participants; index as i">
+
+                        <th scope="row">{{ i+1 }}</th>
+                        <td>
+                            <ngb-highlight [result]="participant.fullname" [term]="participant.fullname">
+                            </ngb-highlight>
+                        </td>
+                        <td>
+                            <ngb-highlight [result]="participant.mobile" [term]="participant.mobile">
+                            </ngb-highlight>
+                        </td>
+                        <td>
+                            <ngb-highlight [result]="participant.email" [term]="participant.email">
+                            </ngb-highlight>
+                        </td>
+                        <!-- <td *ngIf="country.get('idcardimagesrc').value">
+                            <img [src]="country.get('idcardimagesrc').value" class="small-image" placement="left"
+                                [ngbPopover]="popContent" triggers="mouseenter:mouseleave" popoverTitle="ID Card">
+
+                            <ng-template #popContent let-greeting="greeting">
+                                <img [src]="country.get('idcardimagesrc').value" width="240px" height="240px">
+                            </ng-template>
+                        </td> -->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</sb-layout-dashboard>

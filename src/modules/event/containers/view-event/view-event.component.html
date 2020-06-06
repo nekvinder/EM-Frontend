@@ -11,7 +11,7 @@
                             <th>Registration Type</th>
                             <th>Registration Date</th>
                             <th>Participants</th>
-                            <th *ngIf="false">Action</th>
+                            <th *ngIf="true">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -27,13 +27,11 @@
                             <td><span class="badge badge-primary"
                                     *ngFor="let pname of group.participants">{{pname.fullname}}</span>
                             </td>
-                            <td *ngIf="false">
+                            <td>
                                 <a class="icon-action">
-                                    <!-- <a routerLink="../view/{{group.id}}" target="_blank"><button type="button"
+                                    <a routerLink="../../viewGroup/{{group.id}}" target="_blank"><button type="button"
                                             class="btn btn-primary btn-sm">View Entry</button>
-                                    </a> -->
-
-
+                                    </a>
                                 </a>
                             </td>
                         </tr>
@@ -43,5 +41,3 @@
         </div>
     </div>
 </sb-layout-dashboard>
-<sb-preview-registration [modalService]="modalService" [isNonPreview]="true">
-</sb-preview-registration>

@@ -14,6 +14,7 @@ export class Group {
     name: string;
     participants: Participant[];
     registration_type: number;
+    registration_type_value: string;
 }
 export class IdCard {
     id: number;

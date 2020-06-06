@@ -26,6 +26,12 @@ export class GroupService {
             .pipe(map(res => res));
     }
 
+    getGroup(groupId: number): Observable<Group> {
+        return this.http
+            .get<Group>(`${environment.base_url}Group/${groupId}/?format=json`)
+            .pipe(map(res => res));
+    }
+
     getParticipantsOfGroup(group: Group): Observable<Participant[]> {
         return this.http
             .get<Participant[]>(
