@@ -14,7 +14,7 @@ export class UserService {
     login(email: string, pass: string): Observable<User[]> {
         // environment;
         let url = `${environment.base_url}Login/?format=json&email=${email}&password=` + pass;
-        console.log(url);
+        // console.log(url);
         return this.http.get<User[]>(url).pipe(map(res => res));
     }
 

@@ -15,7 +15,7 @@ export class AuthService {
         );
         this.currentUser = this.currentUserSubject.asObservable();
         this.currentUserSubject.subscribe(user => {
-            console.log('rec', user);
+            // console.log('rec', user);
         });
     }
 

@@ -17,7 +17,7 @@ export class DashboardChartsComponent implements OnInit {
             .toPromise()
             .then(val => {
                 this.events = val;
-                console.log(val);
+                // console.log(val);
             });
     }
 }

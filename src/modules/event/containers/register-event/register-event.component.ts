@@ -95,7 +95,7 @@ export class RegisterEventComponent implements OnInit {
                 let groupId = res['id'];
                 this.usersArray.controls.forEach(element => {
                     element.get('group_id').setValue(groupId);
-                    console.log('debig 889', element.value);
+                    // console.log('debig 889', element.value);
                     usersSubsArray.push(this.participantsService.addUser(element.value));
                 });
 

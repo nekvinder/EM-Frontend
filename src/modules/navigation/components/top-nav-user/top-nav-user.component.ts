@@ -21,7 +21,7 @@ export class TopNavUserComponent implements OnInit {
         this.authService.currentUser.subscribe(
             x => {
                 this.currentUser = x;
-                console.log('rcvd:', x);
+                // console.log('rcvd:', x);
             },
             err => console.error(err)
         );

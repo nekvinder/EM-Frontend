@@ -32,7 +32,7 @@ export class CreateEventComponent implements OnInit {
                 // this.eventId = params['id'];
                 eventService.getEvent(this.eventId).subscribe(val => {
                     this.eventOld = val;
-                    console.log('dede', val);
+                    // console.log('dede', val);
                     this.eventForm.setValue({
                         name: val.name,
                         description: val.description,

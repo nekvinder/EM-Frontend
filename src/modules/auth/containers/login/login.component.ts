@@ -30,11 +30,11 @@ export class LoginComponent implements OnInit {
                 .login(userid, pass)
                 .toPromise()
                 .then(res => {
-                    console.log(res);
+                    // console.log(res);
                     if (res) {
                         if (res.length > 0) {
                             // alert('logged in');
-                            console.log('debug 11', res);
+                            // console.log('debug 11', res);
                             this.authService.login(res[0]);
 
                             if (!this.route.snapshot.params.returnUrl) {
