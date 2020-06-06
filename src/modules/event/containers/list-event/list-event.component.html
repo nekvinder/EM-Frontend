@@ -11,7 +11,7 @@
                             <th>Starts On</th>
                             <th>Ends On</th>
                             <th>Registration Link</th>
-                            <th>Action</th>
+                            <th *ngIf="this.authService.isCurrentLoggedIn()">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -27,8 +27,11 @@
                                 <button (click)="copyMessage(e.id)" type="button"
                                     class="btn btn-warning btn-sm">Copy</button>
                             </td>
-                            <td class="icon-action">
-                                <button type="button" class="btn btn-primary btn-sm">View Registrations</button>
+                            <td class="icon-action" *ngIf="this.authService.isCurrentLoggedIn()">
+                                <a routerLink="../view/{{e.id}}"><button type="button"
+                                        class="btn btn-primary btn-sm">View Registrations</button>
+                                </a>
+
                                 <!-- <a><i class="fa fa-eye" data-toggle="modal"></i></a><a><i class="fa fa-trash"></i></a> -->
                             </td>
                         </tr>

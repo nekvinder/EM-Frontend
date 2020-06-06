@@ -18,9 +18,9 @@ export class GroupService {
 
         return this.http.post(`${environment.base_url}Group/?format=json`, frmData);
     }
-    getGroups(): Observable<Group[]> {
+    getGroups(eventId: number): Observable<Group[]> {
         return this.http
-            .get<Group[]>(`${environment.base_url}Group/?format=json`)
+            .get<Group[]>(`${environment.base_url}Group/?format=json&eventId=` + eventId)
             .pipe(map(res => res));
     }
 

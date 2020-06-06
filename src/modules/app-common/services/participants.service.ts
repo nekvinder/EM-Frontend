@@ -1,5 +1,5 @@
 import { map } from 'rxjs/operators';
-import { Participant } from '../../models/models';
+import { Participant, IdCard } from '../../models/models';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -26,5 +26,14 @@ export class ParticipantsService {
         const formData = new FormData();
         formData.append('imagepath', image);
         return this.http.post(`${environment.base_url}IdCard/?format=json`, formData);
+    }
+
+    getImage(id: number): Observable<IdCard> {
+        return this.http
+            .get<IdCard>(`${environment.base_url}IdCard/${id}/?format=json`)
+            .pipe(map(res => res));
+        // const formData = new FormData();
+        // formData.append('imagepath', image);
+        // return this.http.post(`${environment.base_url}IdCard/?format=json`, formData);
     }
 }

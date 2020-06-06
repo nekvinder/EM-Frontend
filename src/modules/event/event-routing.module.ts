@@ -2,7 +2,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SBRouteData } from '@modules/navigation/models';
-
+import { AuthGuard } from '@modules/auth/guards/auth.guard';
+//
 /* Module */
 import { EventModule } from './event.module';
 
@@ -21,7 +22,7 @@ export const ROUTES: Routes = [
     },
     {
         path: 'create',
-        canActivate: [],
+        canActivate: [AuthGuard],
         component: eventContainers.CreateEventComponent,
         data: {
             title: 'Create Event',
@@ -41,6 +42,14 @@ export const ROUTES: Routes = [
         component: eventContainers.RegisterEventComponent,
         data: {
             title: 'Register',
+        } as SBRouteData,
+    },
+    {
+        path: 'view/:id',
+        canActivate: [],
+        component: eventContainers.ViewEventComponent,
+        data: {
+            title: 'View Event',
         } as SBRouteData,
     },
     // {

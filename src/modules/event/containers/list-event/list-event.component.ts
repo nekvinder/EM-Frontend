@@ -1,9 +1,11 @@
+import { AuthGuard } from '@modules/auth/guards/auth.guard';
 import { FormGroup, FormControl } from '@angular/forms';
 import { ChangeDetectionStrategy, Component, OnInit, AfterViewInit } from '@angular/core';
 import { EventService } from '../../../app-common/services/event.service';
 import { GroupService } from '../../../app-common/services/group.service';
 import { Event } from '../../../models/models';
 import { Router, ActivatedRoute } from '@angular/router';
+import { AuthService } from '../../../auth/services/auth.service';
 
 @Component({
     selector: 'sb-list-event',
@@ -12,7 +14,11 @@ import { Router, ActivatedRoute } from '@angular/router';
     styleUrls: ['list-event.component.scss'],
 })
 export class ListEventComponent implements OnInit, AfterViewInit {
-    constructor(private eventService: EventService, private groupService: GroupService) {}
+    constructor(
+        private eventService: EventService,
+        private groupService: GroupService,
+        public authService: AuthService
+    ) {}
     events: Event[];
 
     ngOnInit(): void {}

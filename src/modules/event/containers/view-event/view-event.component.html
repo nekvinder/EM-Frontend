@@ -1,0 +1,43 @@
+<sb-layout-dashboard>
+    <sb-dashboard-head title="Registrations for Event " [hideBreadcrumbs]="false"></sb-dashboard-head>
+    <div class="row">
+        <div class="col-12 col-md-12 col-lg-12">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Registration Id</th>
+                            <th>Group Name</th>
+                            <th>Registration type</th>
+                            <th>Participants</th>
+                            <th *ngIf="false">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let group of groups">
+                            <td>{{group.id}}</td>
+                            <td>{{group.name}}</td>
+                            <td><span
+                                    *ngIf="group.participants">{{regTypes[group.participants[0].registration_type]}}</span>
+                            </td>
+                            <td><span class="badge badge-primary"
+                                    *ngFor="let pname of group.participants">{{pname.fullname}}</span>
+                            </td>
+                            <td *ngIf="false">
+                                <a class="icon-action">
+                                    <!-- <a routerLink="../view/{{group.id}}" target="_blank"><button type="button"
+                                            class="btn btn-primary btn-sm">View Entry</button>
+                                    </a> -->
+
+
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</sb-layout-dashboard>
+<sb-preview-registration [modalService]="modalService" [isNonPreview]="true">
+</sb-preview-registration>

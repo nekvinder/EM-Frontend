@@ -13,6 +13,10 @@ export class Group {
     name: string;
     participants: Participant[];
 }
+export class IdCard {
+    id: number;
+    imagepath: string;
+}
 
 export class User {
     id: number;

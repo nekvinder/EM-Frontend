@@ -26,6 +26,13 @@ export class AuthService {
         this.currentUserSubject.next(new User());
         alert('Logged Out');
     }
+
+    isCurrentLoggedIn() {
+        if (this.currentUserValue().id) {
+            return true;
+        }
+        return false;
+    }
     currentUserValue(): User {
         return this.currentUserSubject.value;
     }

@@ -27,6 +27,8 @@ export class PreviewComponent implements OnInit {
     @Input() regTypeForm: FormGroup;
     @Input() registrationForm: FormGroup;
     @Input() oneImageExists: boolean;
+    @Input() isNonPreview: boolean;
+
     @Input() modalService: NgbModal;
     @Output() onSumbitPreview: EventEmitter<any> = new EventEmitter();
 
@@ -43,7 +45,7 @@ export class PreviewComponent implements OnInit {
 
     open(content) {
         this.modalService
-            .open(content, { ariaLabelledBy: 'modal-basic-title', size: 'xl' })
+            .open(content, { ariaLabelledBy: 'modal-basic-title', size: 'xl', centered: true })
             .result.then(
                 result => {
                     this.closeResult = `Closed with: ${result}`;
@@ -73,5 +75,9 @@ export class PreviewComponent implements OnInit {
         return this.registrationForm.get('users') as FormArray;
     }
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        if (this.isNonPreview) {
+            this.oneImageExists = true;
+        }
+    }
 }

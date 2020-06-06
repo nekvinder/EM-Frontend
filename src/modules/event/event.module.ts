@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { TablesModule } from '@modules/tables/tables.module';
+import { AuthGuard } from '@modules/auth/guards/auth.guard';
 
 /* Modules */
 import { AppCommonModule } from '@common/app-common.module';
@@ -35,7 +36,7 @@ import { PreviewComponent } from './containers';
         AppCommonModule,
         NavigationModule,
     ],
-    // providers: [...eventServices.services, ...eventGuards.guards],
+    providers: [AuthGuard],
     declarations: [...eventContainers.containers, ...eventComponents.components],
     exports: [...eventContainers.containers, ...eventComponents.components],
 })

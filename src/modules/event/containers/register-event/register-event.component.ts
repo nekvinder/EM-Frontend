@@ -80,6 +80,11 @@ export class RegisterEventComponent implements OnInit {
     }
 
     submitForm() {
+        // if (!this.regTypeForm.valid) {
+        //     alert('Please enter group name');
+        //     return;
+        // }
+
         this.groupsService
             .addGroup(this.regTypeForm.get('groupName').value, this.eventId)
             .toPromise()

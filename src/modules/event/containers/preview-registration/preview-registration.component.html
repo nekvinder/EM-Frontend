@@ -12,16 +12,18 @@
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-12 col-md-12 col-lg-12">
-                                        <table class="table table-striped">
+                                        <table class="table table-dark">
+                                            <tr>
+                                                <th>Registration Type</th>
+                                                <td>{{this.regTypeForm.get('regType').value}}</td>
+                                            </tr>
+                                            <tr *ngIf="this.regTypeForm.get('regType').value!='Individual'">
+                                                <th>Team Members Count</th>
+                                                <td>{{this.regTypeForm.get('participantNum').value}}</td>
+                                            </tr>
+                                        </table>
+                                        <table class="table table-dark">
                                             <thead>
-                                                <tr>
-                                                    <th>Registration Type</th>
-                                                    <td>{{this.regTypeForm.get('regType').value}}</td>
-                                                </tr>
-                                                <tr *ngIf="this.regTypeForm.get('regType').value!='Individual'">
-                                                    <th>Team Members Count</th>
-                                                    <td>{{this.regTypeForm.get('participantNum').value}}</td>
-                                                </tr>
                                                 <tr>
                                                     <th>Team Name</th>
                                                     <td>{{this.regTypeForm.get('groupName').value}}</td>
@@ -92,7 +94,7 @@
                             </div>
 
                         </div>
-                        <div class="modal-footer">
+                        <div *ngIf="!isNonPreview" class="modal-footer">
                             <button type="button" class="btn btn-outline-dark"
                                 (click)="modal.close('Save click')">Save</button>
                         </div>
@@ -100,5 +102,9 @@
                 </div>
             </ng-template>
 
-            <button [disabled]="!registrationForm.valid" (click)="open(content)" class=" btn
+            <button *ngIf="!isNonPreview" [disabled]="!registrationForm.valid || !regTypeForm.valid"
+                (click)="open(content)" class=" btn
     btn-primary">Submit</button>
+            <!-- 
+            <button *ngIf="isNonPreview" (click)="open(content)" class=" btn btn-sm
+    btn-primary">View Details</button> -->
