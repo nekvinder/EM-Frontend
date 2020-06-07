@@ -1,5 +1,5 @@
 <div *ngIf="!sideNavItem.isHidden">
-    <a class="nav-link" [routerLink]="sideNavItem.link" (click)="expanded = !expanded"
+    <a (click)="toggleSideNav()" class="nav-link" [routerLink]="sideNavItem.link"
         [ngClass]="{active: isActive, collapsed: !expanded}">
         <div class="sb-nav-link-icon" *ngIf="sideNavItem.icon">
             <fa-icon [icon]='["fas", sideNavItem.icon]'></fa-icon>

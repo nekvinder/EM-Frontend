@@ -29,24 +29,24 @@ export const ROUTES: Routes = [
         canActivate: [],
         component: dashboardContainers.DashboardComponent,
     },
-    // {
-    //     path: 'static',
-    //     data: {
-    //         title: 'Dashboard Static - SB Admin Angular',
-    //         breadcrumbs: [
-    //             {
-    //                 text: 'Dashboard',
-    //                 link: '/dashboard',
-    //             },
-    //             {
-    //                 text: 'Static',
-    //                 active: true,
-    //             },
-    //         ],
-    //     } as SBRouteData,
-    //     canActivate: [AuthGuard],
-    //     component: dashboardContainers.StaticComponent,
-    // },
+    {
+        path: 'guide',
+        data: {
+            title: 'Docs - SB Admin Angular',
+            breadcrumbs: [
+                {
+                    text: 'Dashboard',
+                    link: '/dashboard',
+                },
+                {
+                    text: 'Static',
+                    active: true,
+                },
+            ],
+        } as SBRouteData,
+        canActivate: [],
+        component: dashboardContainers.StaticComponent,
+    },
     {
         path: 'about',
         data: {

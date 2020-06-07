@@ -16,23 +16,30 @@ export class CreateEventComponent implements OnInit {
     eventForm = new FormGroup({
         name: new FormControl(),
         description: new FormControl(),
-        start: new FormControl(new Date().toISOString().toString().slice(0, -1)),
-        end: new FormControl(new Date().toISOString().toString().slice(0, -1)),
+        start: new FormControl(),
+        end: new FormControl(),
     });
     constructor(
         private eventService: EventService,
         private route: ActivatedRoute,
         private router: Router
     ) {
+        // let str =
+        //     new Date().toISOString().toString().split(':').slice(0, -1).join(':').toString() +
+        //     ':00';
+        // console.log(str);
+        // this.eventForm.setValue({ start: str });
+        // alert(
+        // );
         this.eventId = parseInt(this.route.snapshot.paramMap.get('id'));
         // alert(this.eventId);
         this.route.queryParams.subscribe((params: Params) => {
-            // console.log('dede', params);
             if (this.eventId) {
                 // this.eventId = params['id'];
                 eventService.getEvent(this.eventId).subscribe(val => {
                     this.eventOld = val;
                     // console.log('dede', val);
+                    console.log('dede', val.start.toString().slice(0, -1));
                     this.eventForm.setValue({
                         name: val.name,
                         description: val.description,

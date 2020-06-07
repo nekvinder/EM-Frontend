@@ -9,4 +9,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 export class StaticComponent implements OnInit {
     constructor() {}
     ngOnInit() {}
+    scroll(el: HTMLElement) {
+        el.scrollIntoView();
+    }
 }

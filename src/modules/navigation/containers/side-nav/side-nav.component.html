@@ -4,7 +4,8 @@
             <ng-container *ngFor="let section of sideNavSections">
                 <div class="sb-sidenav-menu-heading" *ngIf="section.text">{{ section.text }}</div>
                 <ng-container *ngFor="let item of section.items">
-                    <sb-side-nav-item [sideNavItem]="sideNavItems[item]"></sb-side-nav-item>
+                    <sb-side-nav-item [navigationService]="navigationService" [sideNavItem]="sideNavItems[item]">
+                    </sb-side-nav-item>
                 </ng-container>
             </ng-container>
         </div>

@@ -47,7 +47,7 @@ export class SideNavData {
             documentation: {
                 icon: 'info-circle',
                 text: 'Guide',
-                link: '/docs/guide',
+                link: '/dashboard/guide',
             },
             about: {
                 icon: 'address-card',
