@@ -27,15 +27,17 @@ export class SideNavData {
                 link: '/dashboard',
             },
             events: {
-                icon: 'columns',
+                icon: 'calendar-alt',
                 text: 'Events',
                 submenu: [
                     {
+                        icon: 'calendar-plus',
                         text: 'Create Event',
                         link: '/events/create',
                         isHidden: !isLoggedIn,
                     },
                     {
+                        icon: 'calendar-check',
                         text: 'List Events',
                         link: '/events/list',
                     },
@@ -43,14 +45,14 @@ export class SideNavData {
             },
 
             documentation: {
-                icon: 'columns',
+                icon: 'info-circle',
                 text: 'Guide',
                 link: '/docs/guide',
             },
             about: {
-                icon: 'columns',
+                icon: 'address-card',
                 text: 'About Us',
-                link: '/docs/about',
+                link: '/dashboard/about',
             },
 
             layouts: {

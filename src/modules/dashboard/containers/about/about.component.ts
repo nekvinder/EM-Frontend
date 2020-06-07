@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'sb-light',
+    selector: 'sb-about',
     // changeDetection: ChangeDetectionStrategy.OnPush,
-    templateUrl: './light.component.html',
-    styleUrls: ['light.component.scss'],
+    templateUrl: './about.component.html',
+    styleUrls: ['about.component.scss'],
 })
-export class LightComponent implements OnInit {
+export class AboutComponent implements OnInit {
     constructor() {}
     ngOnInit() {}
 }

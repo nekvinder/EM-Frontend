@@ -1,0 +1,62 @@
+<!-- <div class="row">
+    <div *ngFor="let profile of profiles" class="col-xl-3 col-md-6">
+        <sb-card-view-details link="/dashboard" background="bg-primary">
+            <div class="card-body">{{profile.name}}</div>
+            <div class="card-details">{{profile.name}}</div>
+        </sb-card-view-details>
+    </div>
+</div> -->
+<section id="team" class="pb-5">
+    <div class="container">
+        <h5 class="section-title h1">THE TEAM</h5>
+        <div class="row">
+            <div *ngFor="let profile of profiles" class="col-xs-12 col-sm-6 col-md-3">
+                <div class="image-flip">
+                    <div class="mainflip flip-0">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="{{profile.photo}}" alt="card image"></p>
+                                    <h4 class="card-title">{{profile.name}}</h4>
+                                    <h6 class=""><i class="fa fa-mobile" aria-hidden="true"></i>
+                                        {{profile.contact}}</h6>
+                                    <h5 class="card-title">Role</h5>
+                                    <p class="bagde badge-info">
+                                        <span>{{profile.role}}</span>
+                                    </p>
+                                    <a class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="backside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <h4 class="card-title">{{profile.name}}</h4>
+                                    <h6>Skills</h6>
+                                    <ul class="card-text text-left">
+                                        <li class="badge-pill badge-primary badge" *ngFor="let skill of profile.skills">
+                                            {{skill}}</li>
+                                    </ul>
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank"
+                                                href="mailto:{{profile.email}}">
+                                                <i class="fa fa-envelope"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank"
+                                                href="{{profile.github}}">
+                                                <i class="fa fa-github"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
