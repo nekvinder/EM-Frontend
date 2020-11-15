@@ -1,4 +1,4 @@
 export const environment = {
-    base_url: 'http://13.233.104.142:8000/',
+    base_url: 'https://nekvinder.com:8000/',
     production: true,
 };

@@ -1,23 +1,14 @@
 <div class="row">
-    <div *ngIf="false" class="col-xl-6">
-        <sb-card>
-            <div class="card-header">
-                <fa-icon class="mr-1" [icon]='["fas", "chart-area"]'></fa-icon>Area Chart Example
-            </div>
-            <div class="card-body">
-                <sb-charts-area></sb-charts-area>
-            </div>
-        </sb-card>
+    <div class="col-xl-6">
+        <sb-card
+            ><div class="card-header"><fa-icon class="mr-1" [icon]='["fas", "chart-area"]'></fa-icon>Area Chart Example</div>
+            <div class="card-body"><sb-charts-area></sb-charts-area></div
+        ></sb-card>
     </div>
-    <div class="col-xl-6" *ngFor="let event of events">
-        <sb-card>
-            <div class="card-header">
-                <fa-icon class="mr-1" [icon]='["fas", "chart-bar"]'></fa-icon>Event Name
-                :<span class="badge badge-success">{{event.name}}</span>
-            </div>
-            <div class="card-body">
-                <sb-charts-event-pie-regtype [eventId]="event.id"></sb-charts-event-pie-regtype>
-            </div>
-        </sb-card>
+    <div class="col-xl-6">
+        <sb-card
+            ><div class="card-header"><fa-icon class="mr-1" [icon]='["fas", "chart-bar"]'></fa-icon>Bar Chart Example</div>
+            <div class="card-body"><sb-charts-bar></sb-charts-bar></div
+        ></sb-card>
     </div>
 </div>
