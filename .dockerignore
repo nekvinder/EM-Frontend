@@ -1,8 +1,9 @@
-*
-!.dockerignore
-!Dockerfile
-!dist/**
-!dist-debug/**
-!scripts/**
-!nginx.conf
-!version
+.git
+.firebase
+.editorconfig
+/node_modules
+/e2e
+/docs
+.gitignore
+*.zip
+*.md

@@ -26,6 +26,7 @@ export class SideNavComponent implements OnInit, OnDestroy {
         public authService: AuthService
     ) {
         this.authService.currentUser.subscribe(x => (this.currentUser = x));
+        
     }
     currentUser: User;
 

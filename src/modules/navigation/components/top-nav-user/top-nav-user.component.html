@@ -1,31 +1,15 @@
-<li class="nav-item dropdown dropdown-user no-caret" *ngIf="authService.currentUser | async as user" ngbDropdown
-    placement="bottom-right" display="dynamic">
-    <a class="nav-link dropdown-toggle" id="userDropdown" ngbDropdownToggle data-cy="userMenu" role="button"
-        aria-haspopup="true" aria-expanded="false">
-        <fa-icon [icon]='["fas", "user"]'></fa-icon>
-    </a>
+<li class="nav-item dropdown dropdown-user no-caret" *ngIf="currentUser" ngbDropdown placement="bottom-right" display="dynamic">
+    <a class="nav-link dropdown-toggle" id="userDropdown" ngbDropdownToggle data-cy="userMenu" role="button" aria-haspopup="true" aria-expanded="false"><fa-icon [icon]='["fas", "user"]'></fa-icon></a>
     <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu aria-labelledby="dropdownUser">
         <h6 class="dropdown-header">
             <div class="dropdown-user-details">
-                <div class="dropdown-user-details-name">{{ user.name }}</div>
-                <div class="dropdown-user-details-email">{{ user.email }}</div>
+                <div class="dropdown-user-details-name">{{ currentUser.name }}</div>
+                <div class="dropdown-user-details-email">{{ currentUser.email }}</div>
             </div>
         </h6>
         <div class="dropdown-divider"></div>
-        <a *ngIf="false" class="dropdown-item" routerLink="/dashboard">Settings</a><a class="dropdown-item"
-            *ngIf="false" routerLink="/dashboard">Activity Log</a>
+        <a class="dropdown-item" routerLink="/dashboard">Settings</a><a class="dropdown-item" routerLink="/dashboard">Activity Log</a>
         <div class="dropdown-divider"></div>
-        <button class="btn btn-danger dropdown-item" (click)="logout()">Logout
-        </button>
-
+        <a class="dropdown-item" routerLink="/dashboard">Logout</a>
     </div>
 </li>
-
-<a *ngIf="!currentUser" class="dropdown-item active" routerLink="/auth/login">Admin Login</a>
-
-<!-- a<span *ngIf="(isLoggedIn$ | async) === true">qwqw</span>b
-c<span *ngIf="(isLoggedIn$ | async) === null">asasasa</span>d
-f<span *ngIf="(isLoggedIn$ | async) === false">erer</span>g -->
-<!-- <li *ngIf="!authService.currentUserValue()" class="nav-item dropdown dropdown-user no-caret" ngbDropdown placement="bottom-right"
-    display="dynamic">
-</li> -->
