@@ -1,8 +1,9 @@
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { UserService } from '../../../app-common/services/user.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '@modules/app-common/services/auth.service';
+
+import { UserService } from '../../../app-common/services/user.service';
 
 @Component({
     selector: 'sb-login',
@@ -18,13 +19,13 @@ export class LoginComponent implements OnInit {
         private route: ActivatedRoute
     ) {}
     loginForm = new FormGroup({
-        email: new FormControl('', Validators.required),
-        password: new FormControl('', Validators.required),
+        email: new FormControl('nekvinder@gmail.com', Validators.required),
+        password: new FormControl('nekvinder', Validators.required),
     });
 
     submitForm() {
-        let userid: string | null = this.loginForm.get('email')!.value;
-        let pass: string | null = this.loginForm.get('password')!.value;
+        const userid: string | null = this.loginForm.get('email')!.value;
+        const pass: string | null = this.loginForm.get('password')!.value;
         if (userid && pass) {
             this.userService
                 .login(userid, pass)

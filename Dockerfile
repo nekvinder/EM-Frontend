@@ -7,4 +7,5 @@ COPY . /app
 RUN npm run build --prod
 
 FROM nginx:1.17.1-alpine
+COPY nginx.conf /etc/nginx/nginx.conf
 COPY --from=build-step /app/dist/sb-admin-angular /usr/share/nginx/html
