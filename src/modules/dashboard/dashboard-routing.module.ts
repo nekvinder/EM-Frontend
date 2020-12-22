@@ -32,7 +32,7 @@ export const ROUTES: Routes = [
     {
         path: 'guide',
         data: {
-            title: 'Docs - SB Admin Angular',
+            title: 'Docs - Nekvinder Projects',
             breadcrumbs: [
                 {
                     text: 'Dashboard',
@@ -50,7 +50,7 @@ export const ROUTES: Routes = [
     {
         path: 'about',
         data: {
-            title: 'About - SB Admin Angular',
+            title: 'About - Nekvinder Projects',
             breadcrumbs: [
                 {
                     text: 'Dashboard',

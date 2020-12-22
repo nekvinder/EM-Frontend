@@ -82,7 +82,7 @@ export const ROUTES: Routes = [
     //     canActivate: [],
     //     component: eventContainers.Event401Component,
     //     data: {
-    //         title: 'Event 401 - SB Admin Angular',
+    //         title: 'Event 401 - Nekvinder Projects',
     //     } as SBRouteData,
     // },
     // {
@@ -90,7 +90,7 @@ export const ROUTES: Routes = [
     //     canActivate: [],
     //     component: eventContainers.Event404Component,
     //     data: {
-    //         title: 'Event 404 - SB Admin Angular',
+    //         title: 'Event 404 - Nekvinder Projects',
     //     } as SBRouteData,
     // },
     // {
@@ -98,7 +98,7 @@ export const ROUTES: Routes = [
     //     canActivate: [],
     //     component: eventContainers.Event500Component,
     //     data: {
-    //         title: 'Event 500 - SB Admin Angular',
+    //         title: 'Event 500 - Nekvinder Projects',
     //     } as SBRouteData,
     // },
     // {
